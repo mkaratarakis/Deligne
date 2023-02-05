@@ -79,16 +79,6 @@ variables {K L : Type*} [field K] [field L] [number_field K]
 --#check @ideal.sum_ramification_inertia
 --#check is_noetherian
 
---(q.valuation : _root_.valuation L (ℤₘ₀)).valuation_subring)
---def comap_val (P : height_one_spectrum R) (Q : height_one_spectrum S) :
-  --height_one_spectrum S → height_one_spectrum R := sorry
-
-def comap_val (A : valuation_subring K ) (B : valuation_subring L) : 
-    (valuation_subring L) → (valuation_subring K) := sorry
-
-theorem comap_val_finite_fibers (A : valuation_subring K)
-  (B : valuation_subring L) :
-  finite  ((comap_val A B)⁻¹' {A}) := sorry
 
 end
 end is_dedekind_domain
