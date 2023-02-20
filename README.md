@@ -3,8 +3,6 @@
 This repository contains the source code for the short paper "Toward a formalisation of the statement of
 Deligne’s Theorem", submitted to [ITP 2023](https://mizar.uwb.edu.pl/ITP2023/). The code runs over Lean 3.49.1 and mathlib's version [4e42a9d0a7](https://github.com/leanprover-community/mathlib/tree/4e42a9d0a79d151ee359c270e498b1a00cc6fa4e) (Nov 28, 2022).
 
-# Abstract
-
 Deligne’s theorem attaching a $p$-adic Galois representation to a weight $k$ eigenform 
 is an important result in number theory. The case $k=2$ was historically proven earlier 
 by Eichler and Shimura, and constitutes a necessary component in the Wiles/Taylor--Wiles 
