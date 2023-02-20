@@ -22,13 +22,14 @@ instance (e : B ≃+* B) : is_local_ring_hom (e.to_ring_hom) := {
   change (u : B) = e b at hu,
   rw hu,
   simp only [ring_equiv.symm_apply_apply],
-
 end }
 
+/- -/
 noncomputable instance general_algebra_map : 
   algebra (local_ring.residue_field A) (local_ring.residue_field B) :=
 ring_hom.to_algebra (local_ring.residue_field.map (algebra_map A B))
 
+/-- The group homomorphism from the Galois group to the Galois group of residue fields. -/
 def algebra_equiv_to_residue_equiv :
 (B ≃ₐ[A] B) →* ((local_ring.residue_field B) ≃ₐ[local_ring.residue_field A] (local_ring.residue_field B)) :=
 { to_fun := λ x, 
@@ -87,6 +88,7 @@ namespace valuation_subring
 
 variables {K L : Type*} [field K] [field L]
 
+/-- The map from the pullback of a valuation subring A to A along a ring homomorphism K →+* L -/
 def ring_hom.valuation_subring_comap (A : valuation_subring L) (f : K →+* L):
    (comap A f) →+* A :=
 { to_fun := λ x, ⟨f x.1, x.2⟩,
@@ -95,6 +97,7 @@ def ring_hom.valuation_subring_comap (A : valuation_subring L) (f : K →+* L):
   map_add' := λ x y, subtype.eq (f.map_add x y),
   map_zero' := subtype.eq f.map_zero, }
 
+/-- The map from the pullback of a valuation subring A to A along a ring homomorphism K →+* L, is local -/
 instance valuation_subring_comap_local (A : valuation_subring L) (f : K →+* L) :
   (is_local_ring_hom (ring_hom.valuation_subring_comap A f))  :=
 { map_nonunit :=
@@ -120,7 +123,7 @@ instance valuation_subring_comap_local (A : valuation_subring L) (f : K →+* L)
     exact inv_unique hainv h1',
   end
 }
-
+/-  -/
 noncomputable instance algebra_comap (A : valuation_subring L) (f : K →+* L) : 
    algebra (local_ring.residue_field (comap A f)) (local_ring.residue_field A) :=
 ring_hom.to_algebra (local_ring.residue_field.map (ring_hom.valuation_subring_comap A f))
@@ -129,8 +132,10 @@ section
 
 variables (K) [algebra K L]
 
-open_locale pointwise
+open_locale 
 
+/-- The group homomorphism from the decomposition group to the group 
+ of automorphisms of the residue field of a valuation subring A-/
 def decomposition_subgroup_to_residue_aut (A : valuation_subring L) : 
  (A.decomposition_subgroup K) →* ring_aut (local_ring.residue_field A) :=
  (local_ring.residue_field.map_aut).comp
@@ -139,6 +144,8 @@ def decomposition_subgroup_to_residue_aut (A : valuation_subring L) :
 instance foo (A : valuation_subring L) : algebra (comap A (algebra_map K L)) A :=
 ring_hom.to_algebra (ring_hom.valuation_subring_comap A (algebra_map K L))
 
+/-- The group homomorphism from the decomposition group to the Galois group of 
+A fixing the pullback of A. -/
 def decomposition_subgroup.restrict (A : valuation_subring L) :
   (A.decomposition_subgroup K) →* (A ≃ₐ[comap A (algebra_map K L)] A) := {
   to_fun := λ x, {
@@ -173,23 +180,27 @@ variables [number_field K] [number_field L] [algebra K L] [is_galois K L] (K)
 
 open valuation_subring
 
+/-- Obtaining the valuation subring of L from the nonzero prime 
+ ideals of its ring of integers-/
 noncomputable def _root_.is_dedekind_domain.height_one_spectrum.valuation_subring
  (q : height_one_spectrum (𝓞 L)) : valuation_subring L := 
   q.valuation.valuation_subring
 
+/-- The natural reduction homomorphism from the decomposition group 
+  to the Galois group of the residue field of A 
+  fixing the residue field of the pullback of A -/
 noncomputable def decomposition_subgroup.to_residue_field_equiv (A : valuation_subring L) :
   (decomposition_subgroup K A) →* 
   ((local_ring.residue_field A) ≃ₐ[local_ring.residue_field (comap A (algebra_map K L))]
   (local_ring.residue_field A)) := 
   (local_ring.algebra_equiv_to_residue_equiv).comp (decomposition_subgroup.restrict K A)
 
-#check @inertia_subgroup
-
-/-- The natural reduction homomorphism is surjective. -/
+/- The natural reduction homomorphism is surjective. -/
 theorem decomposition_subgroup.surjective (q : height_one_spectrum (𝓞 L)) :
   function.surjective (decomposition_subgroup.to_residue_field_equiv K
   q.valuation_subring) := sorry
 
+/-- If inertia is trivial, the natural reduction homomorphism is bijective. -/
 theorem decomposition_subgroup.bijective (q : height_one_spectrum (𝓞 L))
   (h : inertia_subgroup K q.valuation_subring = ⊥) :
 function.bijective (decomposition_subgroup.to_residue_field_equiv K
