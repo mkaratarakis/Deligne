@@ -1,3 +1,10 @@
+
+/-
+Copyright (c) 2023 Michail Karatarakis. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Michail Karatarakis
+-/
+
 import ring_theory.ideal.local_ring
 import ring_theory.valuation.valuation_subring
 import number_theory.number_field.basic
