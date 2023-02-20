@@ -215,4 +215,10 @@ split,
 {exact decomposition_subgroup.surjective K q}
 end
 
+/-- The Frobenius element as an element of the decomposition group -/
+def frobq (ha : algebra.is_algebraic K L)
+  (q : height_one_spectrum (𝓞 L))
+  (h : inertia_subgroup K q.valuation_subring = ⊥) : 
+  (decomposition_subgroup K q.valuation_subring) := sorry
+
 end valuation_subring
