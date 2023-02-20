@@ -3,6 +3,7 @@ Copyright (c) 2023 Michail Karatarakis. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Michail Karatarakis
 -/
+
 import field_theory.is_alg_closed.algebraic_closure
 import topology.algebra.continuous_monoid_hom
 import field_theory.krull_topology
