@@ -3,6 +3,17 @@
 This repository contains the source code for the short paper "Toward a formalisation of the statement of
 Deligne’s Theorem", submitted to [ITP 2023](https://mizar.uwb.edu.pl/ITP2023/). The code runs over Lean 3.49.1 and mathlib's version [4e42a9d0a7](https://github.com/leanprover-community/mathlib/tree/4e42a9d0a79d151ee359c270e498b1a00cc6fa4e) (Nov 28, 2022).
 
+# Abstract
+
+Deligne’s theorem attaching a $p$-adic Galois representation to a weight $k$ eigenform 
+is an important result in number theory. The case $k=2$ was historically proven earlier 
+by Eichler and Shimura, and constitutes a necessary component in the Wiles/Taylor--Wiles 
+proof of Fermat's Last Theorem. The formalisation of the statement of Deligne's theorem 
+has been suggested as a challenge for modern theorem provers. Moreover, the formalisation 
+of this statement involves the formalisation of objects that are currently studied in 
+present mathematical research such as the Langlands Program. We discuss a work in progress 
+formalisation of the statement of this theorem in the Lean 3 theorem prover.
+
 # Installation instructions
 
 The formalization has been developed over Lean 3 and its matemathical library mathlib. For detailed instructions to install Lean, mathlib, and supporting tools, visit the [Lean Community website](https://leanprover-community.github.io/get_started.html).
