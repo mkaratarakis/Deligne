@@ -12,5 +12,6 @@ import topology.instances.matrix
 
 variables (k : Type*) [comm_ring k] [topological_space k] [topological_ring k]
 
+/--The type of Galois representations-/
 noncomputable! def galois_rep := continuous_monoid_hom
  ((algebraic_closure ℚ) ≃ₐ[ℚ] (algebraic_closure ℚ) ) (GL (fin 2) k)
