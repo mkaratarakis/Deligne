@@ -1,7 +1,7 @@
 # Toward a formalisation of the statement of Deligne’s Theorem
 
 This repository contains the source code for the short paper "Toward a formalisation of the statement of
-Deligne’s Theorem", submitted to [ITP 2023](https://mizar.uwb.edu.pl/ITP2023/). The code runs over Lean 3.49.1 and mathlib's version [4e42a9d0a7](https://github.com/leanprover-community/mathlib/tree/4e42a9d0a79d151ee359c270e498b1a00cc6fa4e) (Nov 28, 2022).
+Deligne’s Theorem", submitted to [ITP 2023](https://mizar.uwb.edu.pl/ITP2023/). The code runs over Lean 3.49.1 and mathlib's version [bd9851c](https://github.com/leanprover-community/mathlib) (Feb 20, 2023).
 
 Deligne’s theorem attaching a $p$-adic Galois representation to a weight $k$ eigenform 
 is an important result in number theory. The case $k=2$ was historically proven earlier 
