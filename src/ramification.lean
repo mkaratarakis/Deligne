@@ -206,6 +206,10 @@ theorem decomposition_subgroup.surjective (q : height_one_spectrum (𝓞 L)) :
   function.surjective (decomposition_subgroup.to_residue_field_equiv K
   q.valuation_subring) := sorry
 
+lemma equal_kernels (q : height_one_spectrum (𝓞 L)) :
+  (decomposition_subgroup.to_residue_field_equiv K
+q.valuation_subring).ker = inertia_subgroup K q.valuation_subring := sorry
+
 /-- If inertia is trivial, the natural reduction homomorphism is bijective. -/
 theorem decomposition_subgroup.bijective (q : height_one_spectrum (𝓞 L))
   (h : inertia_subgroup K q.valuation_subring = ⊥) :
@@ -215,8 +219,9 @@ begin
 split,
 { have : (decomposition_subgroup.to_residue_field_equiv K
  q.valuation_subring).ker = ⊥,
-{sorry},
- exact (decomposition_subgroup.to_residue_field_equiv K
+{ rw equal_kernels K q,
+  exact h,},
+exact (decomposition_subgroup.to_residue_field_equiv K
  q.valuation_subring).ker_eq_bot_iff.mp this,},
 {exact decomposition_subgroup.surjective K q}
 end
